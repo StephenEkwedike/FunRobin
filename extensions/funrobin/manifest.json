@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "FunRobin Autofill",
+  "version": "0.1.0",
+  "description": "Prefill Robinhood order tickets from FunRobin.",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": [
+    "https://robinhood.com/*",
+    "https://www.robinhood.com/*",
+    "https://funrobin.com/*",
+    "http://localhost:3000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://robinhood.com/*", "https://www.robinhood.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "FunRobin Autofill"
+  }
+}
