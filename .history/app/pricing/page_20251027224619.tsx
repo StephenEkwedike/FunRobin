@@ -1,7 +1,5 @@
 "use client"
 
-export const dynamic = "force-dynamic"
-
 import { useState } from "react"
 import Link from "next/link"
 import { Check, X, Crown, Zap, TrendingUp, BarChart3, Award, Moon, Sun } from "lucide-react"

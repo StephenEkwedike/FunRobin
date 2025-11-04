@@ -632,7 +632,7 @@ export default function Home() {
                 href="/pricing"
                 className="px-6 py-3 bg-white text-purple-600 font-bold border-3 border-black shadow-[4px_4px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_#000] transition-all whitespace-nowrap"
               >
-                Subscribe for $35/mo
+                Subscribe for $10/mo
               </Link>
             </div>
           </div>

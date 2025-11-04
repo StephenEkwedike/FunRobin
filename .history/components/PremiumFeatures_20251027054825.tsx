@@ -6,7 +6,7 @@
  * This file documents all UI patterns used to differentiate
  * free vs premium features in FunRobin.
  *
- * Premium Plan: $35/month
+ * Premium Plan: $10/month
  * - Live option updates
  * - Robinhood Auto-Fill
  * - Multipliers up to 20x (free: up to 10x)
@@ -41,7 +41,7 @@ export const UpgradeBanner = () => {
           href="/pricing"
           className="px-6 py-3 bg-white text-purple-600 font-bold border-3 border-black shadow-[4px_4px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_#000] transition-all whitespace-nowrap"
         >
-          Subscribe for $35/mo
+          Subscribe for $10/mo
         </Link>
       </div>
     </div>
@@ -193,7 +193,7 @@ export const getPremiumLockStatus = (option: any, isPremium: boolean) => {
 /**
  * Free vs Premium Features:
  *
- * Feature                  | Free | Premium ($35/mo)
+ * Feature                  | Free | Premium ($10/mo)
  * -------------------------|------|------------------      |     | 
  * Robinhood Auto-Fill      | ✗    | ✅
  * Multipliers up to 20x    | ✗    | ✅ (Free: up to 10x)

@@ -1,7 +1,5 @@
 "use client"
 
-export const dynamic = "force-dynamic"
-
 import { useState } from "react"
 import Link from "next/link"
 import { Check, X, Crown, Zap, TrendingUp, BarChart3, Award, Moon, Sun } from "lucide-react"
@@ -136,7 +134,7 @@ export default function PricingPage() {
               <div className="flex-1">
                 <h2 className="text-3xl font-bold mb-2 text-white">Premium</h2>
                 <div className="mb-6">
-                  <p className="text-4xl font-bold text-white">$35</p>
+                  <p className="text-4xl font-bold text-white">$10</p>
                   <p className="text-white/80">per month</p>
                 </div>
                 <ul className="space-y-4 mb-8">

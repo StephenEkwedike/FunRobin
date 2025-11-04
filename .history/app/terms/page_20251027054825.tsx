@@ -85,7 +85,7 @@ export default function TermsPage() {
                 4. Subscription and Billing
               </h2>
               <p className="mb-2">
-                Premium subscriptions are billed monthly at $35/month. By subscribing, you agree to:
+                Premium subscriptions are billed monthly at $10/month. By subscribing, you agree to:
               </p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Automatic monthly billing until cancellation</li>
