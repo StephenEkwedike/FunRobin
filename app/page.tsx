@@ -1,8 +1,9 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Link from "next/link"
+import { useSession } from "next-auth/react"
 import { Menu, Moon, Sun, X, TrendingUp, TrendingDown, Zap, Filter, Search, Crown, RotateCcw } from "lucide-react"
 
 // ============================================
@@ -255,6 +256,7 @@ const TradeConfirmationModal: React.FC<{
 // ============================================
 
 export default function Home() {
+  const { data: session } = useSession()
   const [darkMode, setDarkMode] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState<StockOption | null>(null)
@@ -269,7 +271,9 @@ export default function Home() {
     moneyness: 0,
     stake: 100,
   })
-  const [isPremium, setIsPremium] = useState(false) // Mock premium status
+  const chirpAudioRef = useRef<HTMLAudioElement | null>(null)
+  const plan = (session?.user as any)?.plan ?? "free"
+  const isPremium = plan === "pro"
 
   // Mock stock options data
   const [stockOptions] = useState<StockOption[]>([
@@ -446,9 +450,16 @@ export default function Home() {
     setSelectedOption(option)
   }
 
-  const playRobinSound = () => {
-    const audio = new Audio("/sounds/robin.mp3")
-    audio.volume = 0.6
+  const playCelebrationSound = () => {
+    if (!chirpAudioRef.current) {
+      chirpAudioRef.current = new Audio("/513712__luke100000__single-bird-chirp-1.wav")
+      chirpAudioRef.current.volume = 0.65
+    }
+
+    const audio = chirpAudioRef.current
+    if (!audio) return
+
+    audio.currentTime = 0
     audio.play().catch(() => {})
   }
 
@@ -493,8 +504,15 @@ export default function Home() {
   }
 
   const handleConfirmTrade = () => {
+    if (!isPremium) {
+      window.alert("FunRobin Pro is required to auto-fill Robinhood trades and unlock 20x multipliers.")
+      setSelectedOption(null)
+      return
+    }
+
+    playCelebrationSound()
+
     if (selectedOption) {
-      playRobinSound()
       openRobinhoodWithAutofill(selectedOption)
     }
     setShowConfetti(true)
